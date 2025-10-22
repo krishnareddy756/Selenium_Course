@@ -1,0 +1,16 @@
+package part2.com.saucedemo.tests.login;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import part2.com.saucedemo.base.BaseTest;
+
+public class LoginTests extends BaseTest {
+    @Test
+    public void testLoginErrorMessage(){
+        loginPage.setUsername("standard_user");
+        loginPage.setPassword("secret_sauce123");
+        loginPage.clickLoginButton();
+        String acutalMessage=loginPage.getErrorMessage();
+        Assert.assertTrue(acutalMessage.contains("Epic sadface"));
+    }
+}
